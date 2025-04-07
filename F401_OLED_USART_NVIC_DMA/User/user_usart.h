@@ -1,9 +1,9 @@
 /*
 *********************************************************************************************************
 *
-*	模块名称 : 串口中断+FIFO驱动模块
-*	文件名称 : uart_fifo.h
-*	版    本 : V1.2
+*	模块名称 : 串口收发驱动模块Hal库版本头文件
+*	文件名称 : user_usart.h
+*	版    本 : V2.0
 *	说    明 : 头文件
 * 编辑时间 ：2025/4/7
 *	作    者 ：
@@ -15,16 +15,28 @@
 #define USART_USART_H_
 
 #include "stm32f4xx_hal.h"
-#include "usart.h"
+//#include "usart.h"
 #include "string.h"
 #include "stdio.h"
 
+// 定义接收缓冲区大小
+#define USART_REC_LEN 256 // 最大接收字节数
+
+// 外部声明需要使用的 UART Handle 
+extern UART_HandleTypeDef huart1;
+
 void User_USART1_Init(UART_HandleTypeDef *huart1);
-void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size);
+void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart);
 void USART1_Printf(const char* str);
-/*
-	如果需要更改串口对应的管脚，请自行修改 bsp_uart_fifo.c文件中的 static void InitHardUart(void)函数
-*/
+
+void User_USART_Start_DMA_Receive(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+void User_USART_Transmit_DMA(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size);
+//void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size);// HAL库会自动调用，无需在此声明
+void User_USART_Printf(UART_HandleTypeDef *huart, const char *format, ...);//可选函数
+
+#endif 
+
+
 
 /* 定义使能的串口, 0 表示不使能（不增加代码大小）， 1表示使能 */
  
@@ -48,7 +60,3 @@ void USART1_Printf(const char* str);
 //	COM6 = 5	/* USART6, PC6, PC7 */
 //}COM_PORT_E;
 
-
-
-
-#endif 

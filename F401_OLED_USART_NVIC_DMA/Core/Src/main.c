@@ -32,7 +32,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "oled.h"
-
+#include "user_usart.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -42,7 +42,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-//#define DataLength 512
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -53,14 +53,13 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-//uint8_t ReceiveData[DataLength];//
+uint8_t ReceiveData[USART_REC_LEN];//
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart);
-void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size);
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -109,6 +108,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   OLED_ShowString(1,1,"Hello",16,0);
 //  HAL_UARTEx_ReceiveToIdle_DMA(&huart1, ReceiveData, sizeof(ReceiveData));
+  User_USART_Start_DMA_Receive(&huart1, *pData);
   while (1)
   {
     /* USER CODE END WHILE */

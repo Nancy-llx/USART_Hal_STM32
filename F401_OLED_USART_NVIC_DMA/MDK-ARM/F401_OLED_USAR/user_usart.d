@@ -31,7 +31,6 @@ f401_oled_usar\user_usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i
 f401_oled_usar\user_usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h
 f401_oled_usar\user_usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
 f401_oled_usar\user_usart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
-f401_oled_usar\user_usart.o: ../Core/Inc/usart.h
-f401_oled_usar\user_usart.o: ../Core/Inc/main.h
 f401_oled_usar\user_usart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 f401_oled_usar\user_usart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+f401_oled_usar\user_usart.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
