@@ -22,12 +22,47 @@ unsigned int USART1_RX_STA = 0; // 接收状态标记
 unsigned char aRxBuffer1[RXBUFFERSIZE]; // 接收缓冲
 unsigned char len1; // 接收到的数据长度
 
-//初始化程序
-void User_USART1_Init(UART_HandleTypeDef *huart1)
+////初始化程序
+//void User_USART1_Init(UART_HandleTypeDef *huart1)
+//{
+//  HAL_UARTEx_ReceiveToIdle_DMA(huart1, USART1_RX_BUF, USART_REC_LEN);//开启接收数据中断（DMA）
+//}
+/**
+ * @brief  启动指定串口的 DMA 空闲中断接收
+ * @param  huart: UART handle
+ * @param  pData: 指向接收缓冲区的指针
+ * @param  Size:  接收缓冲区的最大长度
+ * @retval None
+ */
+void User_USART_Start_DMA_Receive(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size)
 {
-  HAL_UARTEx_ReceiveToIdle_DMA(huart1, USART1_RX_BUF, USART_REC_LEN);//开启接收数据中断（DMA）
+    // 确保传入的指针和大小有效
+    if (huart == NULL || pData == NULL || Size == 0)
+    {
+        // 可以添加错误处理逻辑，例如打印错误信息或断言
+        return;
+    }
+    // 启动 DMA 接收，使用空闲中断模式
+    HAL_UARTEx_ReceiveToIdle_DMA(huart, pData, Size);
 }
 
+/**
+ * @brief  使用 DMA 非阻塞发送数据（数组）
+ * @param  huart: UART handle
+ * @param  pData: 指向要发送数据的指针
+ * @param  Size:  要发送的数据长度
+ * @retval None
+ */
+void User_USART_Transmit_DMA(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size)
+{
+    if (huart == NULL || pData == NULL || Size == 0)
+    {
+        return; // 基本的参数检查
+    }
+    HAL_UART_Transmit_DMA(huart, pData, Size);
+    // 注意：DMA 发送是异步的。如果需要确保发送完成，
+    // 需要检查 HAL_UART_GetState() 或使用发送完成回调 HAL_UART_TxCpltCallback
+}
 
 /*
 *********************************************************************************************************
@@ -42,7 +77,7 @@ void User_USART1_Init(UART_HandleTypeDef *huart1)
 */
 void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
 {
-  if(huart == &huart1)
+  if(huart->Instance == USART1)
   {
     if(huart->RxEventType == HAL_UART_RXEVENT_IDLE||huart->RxEventType == HAL_UART_RXEVENT_TC)//idle空闲，tc超出数据量，ht传输过半
     {
@@ -53,21 +88,21 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
   }
 }
 
-//无阻塞式发送数据
-void USART1_Printf(const char* str)
-{
-    unsigned int usart1_len = strlen(str);
-//    unsigned int index = 0;
-    HAL_UART_Transmit_DMA(&huart1, (const unsigned char *)str, strlen(str));//发送接收到的数据    
-    if (str == NULL) {
-        return;
-    }
-    
-//    while (index < usart1_len) {
-//        HAL_UART_Transmit(&huart1, (unsigned char*)&str[index], 1, 0xff);
-//        index++;
+////无阻塞式发送数据
+//void USART1_Printf(const char* str)
+//{
+//    unsigned int usart1_len = strlen(str);
+////    unsigned int index = 0;
+//    HAL_UART_Transmit_DMA(&huart1, (const unsigned char *)str, strlen(str));//发送接收到的数据    
+//    if (str == NULL) {
+//        return;
 //    }
-}
+//    
+////    while (index < usart1_len) {
+////        HAL_UART_Transmit(&huart1, (unsigned char*)&str[index], 1, 0xff);
+////        index++;
+////    }
+//}
 
 /*---------------------------------printf函数配置-----------------------------------*/
  
