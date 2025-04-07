@@ -188,7 +188,7 @@
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
-            <useUlib>0</useUlib>
+            <useUlib>1</useUlib>
             <EndSel>0</EndSel>
             <uLtcg>0</uLtcg>
             <nSecure>0</nSecure>
@@ -599,14 +599,9 @@
               <FilePath>..\User\oledfont.c</FilePath>
             </File>
             <File>
-              <FileName>bsp_uart_fifo.c</FileName>
+              <FileName>user_usart.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\User\bsp_uart_fifo.c</FilePath>
-            </File>
-            <File>
-              <FileName>bsp.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\User\bsp.c</FilePath>
+              <FilePath>..\User\user_usart.c</FilePath>
             </File>
           </Files>
         </Group>

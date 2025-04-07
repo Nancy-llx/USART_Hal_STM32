@@ -28,7 +28,8 @@
 "f401_oled_usar\system_stm32f4xx.o"
 "f401_oled_usar\oled.o"
 "f401_oled_usar\oledfont.o"
---strict --scatter "F401_OLED_USAR\F401_OLED_USAR.sct"
+"f401_oled_usar\user_usart.o"
+--library_type=microlib --strict --scatter "F401_OLED_USAR\F401_OLED_USAR.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list "F401_OLED_USAR.map" -o F401_OLED_USAR\F401_OLED_USAR.axf

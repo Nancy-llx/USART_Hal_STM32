@@ -37,4 +37,3 @@ f401_oled_usar\main.o: ../Core/Inc/usart.h
 f401_oled_usar\main.o: ../Core/Inc/gpio.h
 f401_oled_usar\main.o: ../User/oled.h
 f401_oled_usar\main.o: ../User/oledfont.h
-f401_oled_usar\main.o: ../User/bsp_uart_fifo.h

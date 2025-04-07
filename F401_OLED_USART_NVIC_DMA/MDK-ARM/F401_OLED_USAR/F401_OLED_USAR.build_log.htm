@@ -21,134 +21,46 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.6.0
 Dialog DLL:      TCM.DLL V1.36.2.0
  
 <h2>Project:</h2>
-D:\1File\STM32project\Example\Testing\F401_OLED_USART\F401_OLED_USART_NVIC_DMA\MDK-ARM\F401_OLED_USAR.uvprojx
-Project File Date:  04/02/2025
+D:\1File\STM32project\Example\USART\F401_OLED_USART_NVIC_DMA\MDK-ARM\F401_OLED_USAR.uvprojx
+Project File Date:  04/07/2025
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Rebuild target 'F401_OLED_USAR'
 assembling startup_stm32f401xc.s...
-compiling stm32f4xx_it.c...
-compiling stm32f4xx_hal_i2c.c...
-compiling i2c.c...
-compiling stm32f4xx_hal_rcc.c...
+compiling main.c...
 compiling gpio.c...
 compiling dma.c...
-compiling stm32f4xx_hal_rcc_ex.c...
-compiling stm32f4xx_hal_i2c_ex.c...
-compiling stm32f4xx_hal_msp.c...
 compiling usart.c...
-compiling main.c...
+compiling stm32f4xx_hal_msp.c...
+compiling i2c.c...
+compiling stm32f4xx_hal_i2c_ex.c...
+compiling stm32f4xx_it.c...
+compiling stm32f4xx_hal_rcc_ex.c...
 compiling stm32f4xx_hal_flash.c...
-compiling stm32f4xx_hal_flash_ramfunc.c...
+compiling stm32f4xx_hal_rcc.c...
 compiling stm32f4xx_hal_flash_ex.c...
+compiling stm32f4xx_hal_i2c.c...
+compiling stm32f4xx_hal_flash_ramfunc.c...
 compiling stm32f4xx_hal_gpio.c...
-compiling stm32f4xx_hal_dma_ex.c...
-compiling oledfont.c...
 compiling stm32f4xx_hal_dma.c...
-compiling stm32f4xx_hal_pwr.c...
 compiling stm32f4xx_hal_pwr_ex.c...
-compiling stm32f4xx_hal_cortex.c...
-compiling stm32f4xx_hal.c...
 compiling stm32f4xx_hal_exti.c...
 compiling stm32f4xx_hal_tim.c...
+compiling stm32f4xx_hal_cortex.c...
+compiling stm32f4xx_hal_pwr.c...
+compiling stm32f4xx_hal.c...
+compiling stm32f4xx_hal_dma_ex.c...
+compiling oledfont.c...
 compiling stm32f4xx_hal_tim_ex.c...
 compiling system_stm32f4xx.c...
 compiling oled.c...
 compiling stm32f4xx_hal_uart.c...
-compiling bsp_uart_fifo.c...
-..\User\bsp_uart_fifo.c(385): error:  #20: identifier "USART_InitTypeDef" is undefined
-  	USART_InitTypeDef USART_InitStructure;
-..\User\bsp_uart_fifo.c(392): warning:  #223-D: function "RCC_AHB1PeriphClockCmd" declared implicitly
-  		RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
-..\User\bsp_uart_fifo.c(392): error:  #20: identifier "RCC_AHB1Periph_GPIOA" is undefined
-  		RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
-..\User\bsp_uart_fifo.c(395): warning:  #223-D: function "RCC_APB2PeriphClockCmd" declared implicitly
-  		RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, ENABLE);
-..\User\bsp_uart_fifo.c(395): error:  #20: identifier "RCC_APB2Periph_USART1" is undefined
-  		RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, ENABLE);
-..\User\bsp_uart_fifo.c(398): warning:  #223-D: function "GPIO_PinAFConfig" declared implicitly
-  		GPIO_PinAFConfig(GPIOA, GPIO_PinSource9, GPIO_AF_USART1);
-..\User\bsp_uart_fifo.c(398): error:  #20: identifier "GPIO_PinSource9" is undefined
-  		GPIO_PinAFConfig(GPIOA, GPIO_PinSource9, GPIO_AF_USART1);
-..\User\bsp_uart_fifo.c(398): error:  #20: identifier "GPIO_AF_USART1" is undefined
-  		GPIO_PinAFConfig(GPIOA, GPIO_PinSource9, GPIO_AF_USART1);
-..\User\bsp_uart_fifo.c(401): error:  #20: identifier "GPIO_PinSource10" is undefined
-  		GPIO_PinAFConfig(GPIOA, GPIO_PinSource10, GPIO_AF_USART1);
-..\User\bsp_uart_fifo.c(404): error:  #136: struct "<unnamed>"  has no field "GPIO_OType"
-  		GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;	/* 输出类型为推挽 */
-..\User\bsp_uart_fifo.c(404): error:  #20: identifier "GPIO_OType_PP" is undefined
-  		GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;	/* 输出类型为推挽 */
-..\User\bsp_uart_fifo.c(405): error:  #136: struct "<unnamed>"  has no field "GPIO_PuPd"
-  		GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;	/* 内部上拉电阻使能 */
-..\User\bsp_uart_fifo.c(405): error:  #20: identifier "GPIO_PuPd_UP" is undefined
-  		GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;	/* 内部上拉电阻使能 */
-..\User\bsp_uart_fifo.c(406): error:  #136: struct "<unnamed>"  has no field "GPIO_Mode"
-  		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;	/* 复用模式 */
-..\User\bsp_uart_fifo.c(406): error:  #20: identifier "GPIO_Mode_AF" is undefined
-  		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;	/* 复用模式 */
-..\User\bsp_uart_fifo.c(408): error:  #136: struct "<unnamed>"  has no field "GPIO_Pin"
-  		GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;
-..\User\bsp_uart_fifo.c(408): error:  #20: identifier "GPIO_Pin_9" is undefined
-  		GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;
-..\User\bsp_uart_fifo.c(409): error:  #136: struct "<unnamed>"  has no field "GPIO_Speed"
-  		GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-..\User\bsp_uart_fifo.c(409): error:  #20: identifier "GPIO_Speed_50MHz" is undefined
-  		GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-..\User\bsp_uart_fifo.c(410): warning:  #223-D: function "GPIO_Init" declared implicitly
-  		GPIO_Init(GPIOA, &GPIO_InitStructure);
-..\User\bsp_uart_fifo.c(413): error:  #136: struct "<unnamed>"  has no field "GPIO_Mode"
-  		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
-..\User\bsp_uart_fifo.c(414): error:  #136: struct "<unnamed>"  has no field "GPIO_Pin"
-  		GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
-..\User\bsp_uart_fifo.c(414): error:  #20: identifier "GPIO_Pin_10" is undefined
-  		GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
-..\User\bsp_uart_fifo.c(446): error:  #20: identifier "USART_WordLength_8b" is undefined
-  	USART_InitStructure.USART_WordLength = USART_WordLength_8b;
-..\User\bsp_uart_fifo.c(447): error:  #20: identifier "USART_StopBits_1" is undefined
-  	USART_InitStructure.USART_StopBits = USART_StopBits_1;
-..\User\bsp_uart_fifo.c(448): error:  #20: identifier "USART_Parity_No" is undefined
-  	USART_InitStructure.USART_Parity = USART_Parity_No ;
-..\User\bsp_uart_fifo.c(449): error:  #20: identifier "USART_HardwareFlowControl_None" is undefined
-  	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
-..\User\bsp_uart_fifo.c(450): error:  #20: identifier "USART_Mode_Rx" is undefined
-  	USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
-..\User\bsp_uart_fifo.c(450): error:  #20: identifier "USART_Mode_Tx" is undefined
-  	USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
-..\User\bsp_uart_fifo.c(451): warning:  #223-D: function "USART_Init" declared implicitly
-  	USART_Init(USART1, &USART_InitStructure);
-..\User\bsp_uart_fifo.c(453): warning:  #223-D: function "USART_ITConfig" declared implicitly
-  	USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);	/* 使能接收中断 */
-..\User\bsp_uart_fifo.c(453): error:  #20: identifier "USART_IT_RXNE" is undefined
-  	USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);	/* 使能接收中断 */
-..\User\bsp_uart_fifo.c(459): warning:  #223-D: function "USART_Cmd" declared implicitly
-  	USART_Cmd(USART1, ENABLE);		/* 使能串口 */
-..\User\bsp_uart_fifo.c(463): warning:  #223-D: function "USART_ClearFlag" declared implicitly
-  	USART_ClearFlag(USART1, USART_FLAG_TC);     /* 清发送完成标志，Transmission Complete flag */
-..\User\bsp_uart_fifo.c(463): error:  #20: identifier "USART_FLAG_TC" is undefined
-  	USART_ClearFlag(USART1, USART_FLAG_TC);     /* 清发送完成标志，Transmission Complete flag */
-..\User\bsp_uart_fifo.c(789): error:  #20: identifier "NVIC_InitTypeDef" is undefined
-  	NVIC_InitTypeDef NVIC_InitStructure;
-..\User\bsp_uart_fifo.c(792): warning:  #223-D: function "NVIC_PriorityGroupConfig" declared implicitly
-  	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_0);
-..\User\bsp_uart_fifo.c(792): error:  #20: identifier "NVIC_PriorityGroup_0" is undefined
-  	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_0);
-..\User\bsp_uart_fifo.c(799): warning:  #223-D: function "NVIC_Init" declared implicitly
-  	NVIC_Init(&NVIC_InitStructure);
-..\User\bsp_uart_fifo.c(888): warning:  #223-D: function "USART_ITConfig" declared implicitly
-  	USART_ITConfig(_pUart->uart, USART_IT_TXE, ENABLE);
-..\User\bsp_uart_fifo.c(888): error:  #20: identifier "USART_IT_TXE" is undefined
-  	USART_ITConfig(_pUart->uart, USART_IT_TXE, ENABLE);
-..\User\bsp_uart_fifo.c: 11 warnings, 30 errors
-compiling bsp.c...
-..\User\bsp.c(40): warning:  #223-D: function "bsp_InitKey" declared implicitly
-  	bsp_InitKey();		/* 初始化按键 */
-..\User\bsp.c(42): warning:  #223-D: function "bsp_InitTimer" declared implicitly
-  	bsp_InitTimer();	/* 初始化系统滴答定时器 */
-..\User\bsp.c(56): warning:  #223-D: function "bsp_KeyScan" declared implicitly
-  	bsp_KeyScan();		/* 按键扫描 */
-..\User\bsp.c: 3 warnings, 0 errors
-"F401_OLED_USAR\F401_OLED_USAR.axf" - 30 Error(s), 14 Warning(s).
+compiling user_usart.c...
+linking...
+Program Size: Code=8488 RO-data=2524 RW-data=44 ZI-data=1628  
+FromELF: creating hex file...
+"F401_OLED_USAR\F401_OLED_USAR.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -171,8 +83,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.2.0
-Target not created.
-Build Time Elapsed:  00:00:21
+Build Time Elapsed:  00:00:07
 </pre>
 </body>
 </html>

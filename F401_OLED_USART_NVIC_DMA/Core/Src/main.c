@@ -32,7 +32,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "oled.h"
-#include "bsp_uart_fifo.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -42,7 +42,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define DataLength 512
+//#define DataLength 512
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -53,7 +53,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-uint8_t ReceiveData[DataLength];//
+//uint8_t ReceiveData[DataLength];//
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -108,7 +108,7 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   OLED_ShowString(1,1,"Hello",16,0);
-  HAL_UARTEx_ReceiveToIdle_DMA(&huart1, ReceiveData, sizeof(ReceiveData));
+//  HAL_UARTEx_ReceiveToIdle_DMA(&huart1, ReceiveData, sizeof(ReceiveData));
   while (1)
   {
     /* USER CODE END WHILE */
@@ -170,31 +170,31 @@ void SystemClock_Config(void)
  * 利用DMA空闲中断实现不定长数据收发
  * 传输过半中断同样会触发该回调函数，需要进行判断
 */
-void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
-{
-  if(huart == &huart1)
-  {
-    if(huart->RxEventType == HAL_UART_RXEVENT_IDLE||huart->RxEventType == HAL_UART_RXEVENT_TC)//idle空闲，tc超出数据量，ht传输过半
-    {
-      HAL_UART_Transmit_DMA(&huart1, ReceiveData, Size);//发送接收到的数据
-      OLED_Clear();
-      if(ReceiveData[0] == 'R')
-        OLED_ShowString(1,3,"Red",16,0);
-      else if(ReceiveData[0] == 'B')
-        OLED_ShowString(1,3,"Blue",16,0);
-      else
-        OLED_ShowString(40,3,"*",16,0);
-      if(ReceiveData[1] == '0')
-        OLED_ShowString(40,3,"On",16,0);
-      else if(ReceiveData[1] == '1')
-        OLED_ShowString(40,3,"Off",16,0);
-      else
-        OLED_ShowString(40,3,"*",16,0);  
-      HAL_UARTEx_ReceiveToIdle_DMA(&huart1, ReceiveData, sizeof(ReceiveData));//为下次接收开启中断，否则只会执行一次      
-    }    
-  }
+//void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
+//{
+//  if(huart == &huart1)
+//  {
+//    if(huart->RxEventType == HAL_UART_RXEVENT_IDLE||huart->RxEventType == HAL_UART_RXEVENT_TC)//idle空闲，tc超出数据量，ht传输过半
+//    {
+//      HAL_UART_Transmit_DMA(&huart1, ReceiveData, Size);//发送接收到的数据
+//      OLED_Clear();
+//      if(ReceiveData[0] == 'R')
+//        OLED_ShowString(1,3,"Red",16,0);
+//      else if(ReceiveData[0] == 'B')
+//        OLED_ShowString(1,3,"Blue",16,0);
+//      else
+//        OLED_ShowString(40,3,"*",16,0);
+//      if(ReceiveData[1] == '0')
+//        OLED_ShowString(40,3,"On",16,0);
+//      else if(ReceiveData[1] == '1')
+//        OLED_ShowString(40,3,"Off",16,0);
+//      else
+//        OLED_ShowString(40,3,"*",16,0);  
+//      HAL_UARTEx_ReceiveToIdle_DMA(&huart1, ReceiveData, sizeof(ReceiveData));//为下次接收开启中断，否则只会执行一次      
+//    }    
+//  }
 
-}
+//}
 
 /* USER CODE END 4 */
 
